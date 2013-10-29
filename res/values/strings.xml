@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">JueBox-Android</string><string name="parties_nearby">Parties Nearby</string><string name="create_party">Create</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="confirm_join_party">Join party?</string>
+    <string name="join_party_dialog">Confirm Join Party</string>
+    <string name="error_nearby">Error retrieving nearby parties</string>
+    <string name="error_join">Error joining party</string>
+</resources>

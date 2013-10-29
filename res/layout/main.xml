@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+        >
+    <RelativeLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp" android:layout_weight="1">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/parties_nearby"
+                android:id="@+id/textView" android:layout_alignParentLeft="true" android:layout_marginLeft="0dp"
+                android:layout_alignParentTop="false" android:layout_marginTop="9dp"
+                android:layout_alignParentBottom="true"/>
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/create_party"
+                android:id="@+id/create_party_btn" android:layout_alignParentLeft="false" android:layout_marginLeft="75dp"
+                android:layout_alignParentTop="true" android:layout_marginTop="0dp"
+                android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+    <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:id="@+id/nearby_listview" android:layout_weight="8" android:footerDividersEnabled="false"/>
+</LinearLayout>
+
