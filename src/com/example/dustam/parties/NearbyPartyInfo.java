@@ -3,10 +3,10 @@ package com.example.dustam.parties;
 
 public class NearbyPartyInfo extends PartyInfo {
     private String partyName;
-    private int partyId;
+    private String partyId;
     private boolean hasPassword;
 
-    public NearbyPartyInfo(String partyName, int partyId, boolean hasPassword) {
+    public NearbyPartyInfo(String partyName, String partyId, boolean hasPassword) {
         this.partyId = partyId;
         this.partyName = partyName;
         this.hasPassword = hasPassword();
@@ -20,11 +20,11 @@ public class NearbyPartyInfo extends PartyInfo {
         this.partyName = partyName;
     }
 
-    public int getPartyId() {
+    public String getPartyId() {
         return partyId;
     }
 
-    public void setPartyId(int partyId) {
+    public void setPartyId(String partyId) {
         this.partyId = partyId;
     }
 

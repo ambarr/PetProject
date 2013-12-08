@@ -8,9 +8,13 @@ public class Song implements Parcelable {
 
     private String name;
     private String uri;
+    private String artistName;
+    private String albumName;
+
+    private int numRequests;
 
     public Song() {
-
+        numRequests = 0;
     }
 
     public String getName() {
@@ -27,6 +31,38 @@ public class Song implements Parcelable {
 
     public void setUri(String uri) {
         this.uri = uri;
+    }
+
+    public String getArtistName() {
+        return artistName;
+    }
+
+    public void setArtistName(String artistName) {
+        this.artistName = artistName;
+    }
+
+    public String getAlbumName() {
+        return albumName;
+    }
+
+    public void setAlbumName(String albumName) {
+        this.albumName = albumName;
+    }
+
+    public int numRequests() {
+        return numRequests;
+    }
+
+    public void request() {
+        numRequests++;
+    }
+
+    public void clearRequests() {
+        numRequests = 0;
+    }
+
+    public String toString() {
+        return name;
     }
 
     public int describeContents() {

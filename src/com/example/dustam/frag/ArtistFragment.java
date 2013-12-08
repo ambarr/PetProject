@@ -1,19 +1,45 @@
 package com.example.dustam.frag;
 
-import android.app.Fragment;
+import android.app.Activity;
+import android.app.ListFragment;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import com.example.dustam.R;
+import android.widget.ListView;
+import com.example.dustam.parties.Artist;
 
-public class ArtistFragment extends Fragment {
+public class ArtistFragment extends ListFragment {
+
+    private static final String TAG = "ArtistFragment";
+
+    private ArtistListener listener;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
 
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.now_playing_small, container, false);
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            listener = (ArtistListener) activity;
+        } catch (ClassCastException e) {
+            Log.e(TAG, "Activity " + activity.toString() + " doesn't implement SongListener");
+        }
+    }
+
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        // request song
+        Artist artist = (Artist) getListAdapter().getItem(position);
+
+        Log.d(TAG, "Picked artist " + artist.toString());
+        listener.artistPicked(artist);
+    }
+
+    public interface ArtistListener {
+        public void artistPicked(Artist a);
     }
 }

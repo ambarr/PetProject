@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class JoinedPartyInfo extends PartyInfo {
 
     private String partyName;
-    private int partyId;
+    private String partyId;
     private ArrayList<Artist> artists;
 
     public JoinedPartyInfo() {
@@ -20,11 +20,11 @@ public class JoinedPartyInfo extends PartyInfo {
         this.partyName = partyName;
     }
 
-    public int getPartyId() {
+    public String getPartyId() {
         return partyId;
     }
 
-    public void setPartyId(int partyId) {
+    public void setPartyId(String partyId) {
         this.partyId = partyId;
     }
 

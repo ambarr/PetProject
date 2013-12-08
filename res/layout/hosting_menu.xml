@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/cancel_party_action"
+          android:icon="@drawable/ic_action_cancel_party"
+          android:title="@string/menu_end_party"
+          android:showAsAction="ifRoom|withText" />
+</menu>

@@ -15,11 +15,15 @@ import com.example.dustam.parties.NearbyPartyInfo;
 
 import java.util.ArrayList;
 
-public class HomeActivity extends Activity implements View.OnClickListener {
+public class HomeActivity extends Activity {
 
     private static final String TAG = "MainView";
 
+    private String regId;
+
     private ListView mNearbyListView;
+    private Button createPartyBtn;
+
     private ArrayList<NearbyPartyInfo> mNearbyParties;
     private ArrayAdapter<NearbyPartyInfo> mNearbyAdapter;
 
@@ -54,20 +58,17 @@ public class HomeActivity extends Activity implements View.OnClickListener {
             }
         });
 
-        populateNearbyList();
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch(v.getId()) {
-            case R.id.create_party_btn:
+        createPartyBtn = (Button) findViewById(R.id.create_party_btn);
+        createPartyBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, CreatePartyActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                 startActivity(intent);
-                break;
-            default:
-                Log.d(TAG, "Error in on click, received click from " + v.getId());
-                break;
-        }
+            }
+        });
+
+        populateNearbyList();
     }
 
     private void populateNearbyList() {
@@ -83,7 +84,13 @@ public class HomeActivity extends Activity implements View.OnClickListener {
             @Override
             public void onFailure() {
                 Toast.makeText(HomeActivity.this, getString(R.string.error_nearby),
-                        Toast.LENGTH_LONG);
+                        Toast.LENGTH_LONG).show();
+                Log.e(TAG, "Failure getting list of parties.");
+            }
+
+            @Override
+            public String getGCMRegId() {
+                return regId;
             }
         });
     }
@@ -124,7 +131,9 @@ public class HomeActivity extends Activity implements View.OnClickListener {
         }
     }
 
+    private String partyId;
     private void joinParty(String passwordAttempt, NearbyPartyInfo info) {
+        partyId = info.getPartyId();
         requestHelper.joinParty(info.getPartyId(), passwordAttempt, joinCallback);
     }
 
@@ -133,13 +142,20 @@ public class HomeActivity extends Activity implements View.OnClickListener {
         public void onSuccess(ArrayList<Artist> result) {
             Intent intent = new Intent(HomeActivity.this, JoinedPartyActivity.class);
             intent.putParcelableArrayListExtra("library", result);
+            intent.putExtra("partyId", partyId);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
             startActivity(intent);
         }
 
         @Override
         public void onFailure() {
             Toast.makeText(HomeActivity.this, getString(R.string.error_join),
-                    Toast.LENGTH_LONG);
+                    Toast.LENGTH_LONG).show();
+        }
+
+        @Override
+        public Activity getActivity() {
+            return HomeActivity.this;
         }
     };
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">JueBox-Android</string><string name="parties_nearby">Parties Nearby</string><string name="create_party">Create</string>
+    <string name="app_name">398proj</string><string name="parties_nearby">Parties Nearby</string><string name="create_party">Create</string>
     <string name="enter_password">Enter Password</string>
     <string name="ok">Ok</string>
     <string name="cancel">Cancel</string>
@@ -8,4 +8,17 @@
     <string name="join_party_dialog">Confirm Join Party</string>
     <string name="error_nearby">Error retrieving nearby parties</string>
     <string name="error_join">Error joining party</string>
+    <string name="request_error">Error requesting song</string>
+    <string name="party_details">Party Details</string>
+    <string name="party_name">Party Name</string>
+    <string name="party_password">Party Password (optional)</string>
+    <string name="party_create">Create Party</string>
+    <string name="invalid_party_name">Must enter name for party</string>
+    <string name="confirm_end_party">Are you sure you want to end the party?</string>
+    <string name="menu_end_party">End Party</string>
+    <string name="yes">Yes</string>
+    <string name="post_party_error">Couldn\'t create party</string>
+    <string name="party_service_stopped">Party ended</string>
+    <string name="menu_leave_party">Leave Party</string>
+    <string name="confirm_leave_party">Would you like to leave this party?</string>
 </resources>

@@ -11,7 +11,7 @@ public class Artist implements Parcelable {
     private ArrayList<Song> songs;
 
     public Artist() {
-
+        songs = new ArrayList<Song>();
     }
 
     public String getArtistName() {
@@ -30,6 +30,9 @@ public class Artist implements Parcelable {
         this.songs = songs;
     }
 
+    public String toString() {
+        return artistName;
+    }
     @Override
     public int describeContents() {
         return songs.size();
