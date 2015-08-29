@@ -36,7 +36,8 @@
         </activity>
         <activity android:name=".activity.CreatePartyActivity"/>
         <activity android:name=".activity.JoinedPartyActivity"/>
-        <activity android:name=".activity.HostedParty"/>
+        <activity android:name=".activity.HostedParty"
+                  android:configChanges="orientation|screenSize"/>
 
         <service android:name=".util.PartyService"/>
 

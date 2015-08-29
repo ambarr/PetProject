@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.ListFragment;
 import android.app.LoaderManager;
 import android.content.*;
+import android.content.res.Configuration;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -190,6 +191,12 @@ public class HostedParty extends Activity implements LoaderManager.LoaderCallbac
                 .addToBackStack(null)
                 .commit();
 
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        // I ain't gon do nuthin.
+        super.onConfigurationChanged(newConfig);
     }
 
     /*** Query Stuffs below here ***/
